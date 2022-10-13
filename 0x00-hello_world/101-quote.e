@@ -1972,6 +1972,6 @@ int getentropy (void *__buffer, size_t __length) ;
 # 9 "101-quote.c"
 int main(void)
 {
- write(2, "and that piece of art is usefull\" - Dora Korar, 2015-10-19\n", 61);
+ write(2, "and that piece of art is usefull - Dora Korar, 2015-10-19\n", 58);
  return (1);
 }

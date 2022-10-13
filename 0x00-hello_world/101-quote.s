@@ -3,7 +3,7 @@
 	.section	.rodata
 	.align 8
 .LC0:
-	.string	"and that piece of art is usefull\" - Dora Korar, 2015-10-19\n"
+	.string	"and that piece of art is usefull - Dora Korar, 2015-10-19\n"
 	.text
 	.globl	main
 	.type	main, @function
@@ -16,7 +16,7 @@ main:
 	.cfi_offset 6, -16
 	movq	%rsp, %rbp
 	.cfi_def_cfa_register 6
-	movl	$61, %edx
+	movl	$58, %edx
 	leaq	.LC0(%rip), %rsi
 	movl	$2, %edi
 	call	write@PLT
