@@ -3,7 +3,6 @@
   *more_numbers -> prints more numbers
   *Return: success
   */
-
 void more_numbers(void)
 {
 	int x, y;
