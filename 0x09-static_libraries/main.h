@@ -1,5 +1,5 @@
-#ifndef _FUNCTIONS_H
-#define _FUNCTIONS_H
+#ifndef HEADER_FILE
+#define HEADER_FILE
 
 int _putchar(char c);
 int _islower(int c);
