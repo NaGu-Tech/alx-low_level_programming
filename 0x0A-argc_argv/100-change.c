@@ -2,14 +2,14 @@
 #include <stdlib.h>
 
 /**
- * main - Entry point
+ *main - takes in exactly one argument for minimum coin count
  *
- * Description: prints the minimum number of coins to make change for an amount
+ *Description: prints the minimum number of coins to make change for an amount
  *of money
- * @argc: amount of arguments passed through the program
- * @argv: pointer that contains the arrays of the arguments
+ *@argc: amount of arguments passed through the program
+ *@argv: pointer that contains the arrays of the arguments
  *
- * Return: the minimum number of coins needed to make the change for the amount
+ *Return: the minimum number of coins needed to make the change for the amount
  *of money required
  */
 int main(int argc, char *argv[])
