@@ -1,57 +1,39 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <ctype.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 /**
- * _isnumber - checks if string is a number
- * @s: string
- *
- * Return: On success 1.
- * If not a number, 0 is returned.
- */
-int _isnumber(char *s)
+  * main - entry point
+  *
+  * Description: Adds positive numbers
+  * @argc: amount of arguments passed through the program
+  * @argv: pointer that contains the arrays of the arguments
+  *
+  * @argv: pointer that contains the arrays of the arguments a
+  *number has symbols that are not digit then print Error and return 1
+  */
+int main(int argc, char *argv[])
 {
-	int i, check, d;
+	int i, j, sum = 0;
 
-	i = 0, d = 0, check = 1;
-	if (*s == '-')
-		i++;
-	for (; *(s + i) != 0; i++)
+	if (argc == 1)
 	{
-		d = isdigit(*(s + i));
-		if (d == 0)
-		{
-			check = 0;
-			break;
-		}
+		printf("0\n");
 	}
-	return (check);
-}
-/**
- * main - Entry point
- *
- * @argc: Counts the number of parameters that go into main
- * @argv: Pointer of array of pointers containing strings entering main
- * Return: Always 0 (Success)
- */
-int main(int argc, char **argv)
-{
-	int i, n, ex;
-
-	ex = 0, n = 0;
-	if (argc > 1)
-	{
-		for (i = 1; i < argc; i++)
-		{
-			if (_isnumber(argv[i]))
-				n += atoi(argv[i]);
-			else
-				ex = 1;
-		}
-	}
-	if (ex == 0)
-		printf("%i\n", n);
 	else
-		printf("%s\n", "Error");
-	return (ex);
+	{
+		for (i = 1; i < argc; i++)
+		{
+			for (j = 0; argv[i][j] != 0; j++)
+			{
+				if (argv[i][j] > 58 || argv[i][j] < 47)
+				{
+					printf("Error\n");
+					return (1);
+				}
+			}
+			sum = sum + atoi(argv[i]);
+		}
+		printf("%d\n", sum);
+	}
+	return (0);
 }
