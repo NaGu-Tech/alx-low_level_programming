@@ -3,37 +3,35 @@
 #include <stdlib.h>
 
 /**
-  * *str_concat - concatenates two strings
+  * *str_concat - function to allocate space for string concatenation
   *
-  * @s1: first string
-  * @s2: second string
-  * Return: a pointer to the concatenated string or NULL if the process fails
+  * @s1: array pointer to destination of string
+  * @s2:array pointer to source of  string
+  * Return: returm pointer to copy a string
    */
 char *str_concat(char *s1, char *s2)
 {
-	int s1, s2, len1, len2;
-	char *a;
+	char *ptr
+	int size1, size2;
 
-	if (s1 == 0)
+	if (s1 == NULL)
 	{
 		s1 = "";
 	}
-	for (len1 = 0; s1[len1] != 0; len1++)
+	if (s2 == NULL)
 	{
+		s2 = "";
 	}
-	a = malloc(sizeof(char) * (len1 + len2 + 1));
-	if (a == 0)
+	size1 = _strlen(s1);
+	size2 = _strlen(s2);
+
+	ptr = malloc(((size1 + size2) + 1) * sizeof(char));
+	if (ptr == NULL)
 	{
-		return (0);
+		return (NULL);
 	}
-	for (s1 = 0; s1 < len1; s1++)
-	{
-		a[s1] = s1[s1];
-	}
-	for (s2 = 0; s2 < len2; s1++, s2++)
-	{
-		a[s1] = s2[s2];
-	}
-	a[s1] = 0;
-	return (a);
+	_strncat(ptr, s1, size1);
+	_strncat(ptr, s2, size2);
+	ptr += '\0';
+	return (ptr);
 }
