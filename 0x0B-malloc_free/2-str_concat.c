@@ -1,41 +1,6 @@
 #include "main.h"
 #include <stdio.h>
-#include <stdlib.h>
-
-/**
-  * _strlen - return length of a string
-  *
-  *@s: char type
-  *Return: length of string
-  */
-
-int _strlen(char *s)
-{
-	int a;
-
-	for (a = 0; s[a] != '\0'; a++)
-		;
-
-	return (a);
-}
-
-/**
-  * _strncat - function to concatenate strings with n bytes
-  *
-  * @dest: destination  for concatenation
-  * @src: souce of string
-  * @n: int type for size of byte
-  * Return: dest
-  */
-char *_strncat(char *dest, char *src, int n)
-{
-	int dest_len, a;
-
-	dest_len = _strlen(dest);
-	for (a = 0; a < n && src[a] != '\0'; a++)
-		dest[dest_len + a] = src[a];
-	return (dest);
-}
+#include <stdlib.h
 
 /**
   * *str_concat - function to allocate space for string concatenation
@@ -46,27 +11,30 @@ char *_strncat(char *dest, char *src, int n)
    */
 char *str_concat(char *s1, char *s2)
 {
-	char *ptr
-	int size1, size2;
+	int i, len1, len2, len3;
+	char *p;
 
 	if (s1 == NULL)
-	{
-		s1 = "";
-	}
-	if (s2 == NULL)
-	{
-		s2 = "";
-	}
-	size1 = _strlen(s1);
-	size2 = _strlen(s2);
+		len1 = 0;
+	else
+		len1 = strlen(s1);
 
-	ptr = malloc(((size1 + size2) + 1) * sizeof(char));
-	if (ptr == NULL)
-	{
+	if (s2 == NULL)
+		len2 = 0;
+	else
+		len2 = strlen(s2);
+	p = malloc((len1 + len2 + 1) * sizeof(char));
+
+	if (p == NULL)
 		return (NULL);
-	}
-	_strncat(ptr, s1, size1);
-	_strncat(ptr, s2, size2);
-	ptr += '\0';
-	return (ptr);
+
+	for (i = 0; i < len1; i++)
+		p[i] = s1[i];
+	for (i = 0; i < len2; i++)
+		p[i + len1] = s2[i];
+
+	len3 = strlen(p);
+	p[len3] = '\0';
+
+	return (p);
 }
