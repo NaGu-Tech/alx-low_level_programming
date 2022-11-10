@@ -1,32 +1,12 @@
 #include "main.h"
 #include <stdlib.h>
 #include <stdio.h>
-#include <string.h>
-#include <ctype.h>
 
-int _isNum(char *num);
 int find_len(char *str);
 char *create_xarray(int size);
 char *iterate_zeroes(char *str);
 void get_prod(char *prod, char *mult, int digit, int zeroes);
 void add_nums(char *final_prod, char *next_prod, int next_len);
-
-/**
- * _isNum - check if is a number
- *@num: string to check
- *Return: 1 is numm, 0 not num
- */
-int _isNum(char *num)
-{
-	int i;
-
-	for (i = 0; num[i] != '\0'; i++)
-	{
-		if (num[i] < '0' || num[i] > '9')
-			return (0);
-	}
-	return (1);
-}
 
 /**
  * find_len - Finds the length of a string.
@@ -40,6 +20,7 @@ int find_len(char *str)
 
 	while (*str++)
 		len++;
+
 	return (len);
 }
 
@@ -64,7 +45,6 @@ char *create_xarray(int size)
 
 	for (index = 0; index < (size - 1); index++)
 		array[index] = 'x';
-
 	array[index] = '\0';
 
 	return (array);
@@ -120,7 +100,6 @@ void get_prod(char *prod, char *mult, int digit, int zeroes)
 	int mult_len, num, tens = 0;
 
 	mult_len = find_len(mult) - 1;
-
 	mult += mult_len;
 
 	while (*prod)
@@ -128,6 +107,7 @@ void get_prod(char *prod, char *mult, int digit, int zeroes)
 		*prod = 'x';
 		prod++;
 	}
+
 	prod--;
 
 	while (zeroes--)
@@ -136,6 +116,19 @@ void get_prod(char *prod, char *mult, int digit, int zeroes)
 		prod--;
 	}
 
+	for (; mult_len >= 0; mult_len--, mult--, prod--)
+	{
+		*prod = 'x';
+		prod++;
+	}
+
+	prod--;
+
+	while (zeroes--)
+	{
+		*prod = '0';
+		prod--;
+	}
 	for (; mult_len >= 0; mult_len--, mult--, prod--)
 	{
 		if (*mult < '0' || *mult > '9')
@@ -190,6 +183,7 @@ void add_nums(char *final_prod, char *next_prod, int next_len)
 		final_prod--;
 		next_prod--;
 	}
+
 	if (tens)
 		*final_prod = (tens % 10) + '0';
 }
