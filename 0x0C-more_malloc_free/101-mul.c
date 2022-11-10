@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-int main(int argc, char *argv[]);
 int find_len(char *str);
 char *create_xarray(int size);
 char *iterate_zeroes(char *str);
@@ -83,6 +82,7 @@ int get_digit(char c)
 		printf("Error\n");
 		exit(98);
 	}
+
 	return (digit);
 }
 
@@ -104,20 +104,6 @@ void get_prod(char *prod, char *mult, int digit, int zeroes)
 	mult += mult_len;
 
 	while (*prod)
-	{
-		*prod = 'x';
-		prod++;
-	}
-
-	prod--;
-
-	while (zeroes--)
-	{
-		*prod = '0';
-		prod--;
-	}
-
-	for (; mult_len >= 0; mult_len--, mult--, prod--)
 	{
 		*prod = 'x';
 		prod++;
