@@ -129,6 +129,7 @@ void get_prod(char *prod, char *mult, int digit, int zeroes)
 		*prod = '0';
 		prod--;
 	}
+
 	for (; mult_len >= 0; mult_len--, mult--, prod--)
 	{
 		if (*mult < '0' || *mult > '9')
@@ -142,6 +143,7 @@ void get_prod(char *prod, char *mult, int digit, int zeroes)
 		*prod = (num % 10) + '0';
 		tens = num / 10;
 	}
+
 	if (tens)
 		*prod = (tens % 10) + '0';
 }
