@@ -3,21 +3,20 @@
 
 /**
  *main - entry point
- *Description: program that prints its own opcodes in two digit hexadecimal
- *lowercase format
- *@argc: argument count
- *@argv: argument vectors
- *Return: 0
+ (*
+ *@argc: the number of parameters.
+ *@argv: the parameters in the case number ob bytes.
+ *Description: this program prints opcodes in hexa)?
+ *Return: 0 in success
  */
 int main(int argc, char **argv)
 {
 	int n, i;
-	int (*ptr)(int, char **);
 
 	if (argc != 2)
 	{
 		printf("Error\n");
-		exit(1);
+		return (1);
 	}
 	n = atoi(argv[1]);
 	if (n < 0)
@@ -25,9 +24,14 @@ int main(int argc, char **argv)
 		printf("Error\n");
 		exit(2);
 	}
-	ptr = &main;
+
 	for (i = 0; i < n; ++i)
-		printf("%.2x", *((unsigned char *)(ptr + i)));
-	printf("\n");
+	{
+		printf("%02hhx", *((char *)(main + i)));
+		if (i < n - 1)
+			printf(" ");
+		else
+			printf("\n");
+	}
 	return (0);
 }
