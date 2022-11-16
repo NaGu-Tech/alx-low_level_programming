@@ -27,7 +27,7 @@ int main(int argc, char **argv)
 	}
 	ptr = &main;
 	for (i = 0; i < n; i++)
-		printf("%.2x ", *((unsigned char *)(ptr + i)));
+		printf("%.2x", *((unsigned char *)(ptr + i)));
 	printf("\n");
 	return (0);
 }
