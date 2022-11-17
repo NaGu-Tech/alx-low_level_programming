@@ -3,27 +3,27 @@
 #include <stdio.h>
 
 /**
- * print_numbers - Entry Point
- * @separator: comma space
- * @n: elements to be printed
+ * print_numbers - prints numbers & new line at the end
+ * @separator: string
+ * @n: number of elements
  * Return: void
  */
 void print_numbers(const char *separator, const unsigned int n, ...)
 {
-	char *sep;
+	va_list ap;
 	unsigned int i;
-	va_list list;
 
-	if (separator == NULL || *separator == 0)
-		sep = "";
-	else
-		sep = (char *) separator;
-	va_start(list, n);
+	va_start(ap, n);
 
-	if (n > 0)
-		printf("%d", va_arg(list, int));
-	for (i = 1; i < n; 1++)
-		printf("%s%d", sep, va_arg(list, int));
-	printf("\n");
-	va_end(list);
+	for (i = 0; i < n; i++)
+	{
+		printf("%d", va_arg(ap, int));
+
+		if (separator != NULL && i != (n - 1))
+		{
+			printf("%s", separator);
+		}
+	}
+	putchar('\n');
+	va_end(ap);
 }
