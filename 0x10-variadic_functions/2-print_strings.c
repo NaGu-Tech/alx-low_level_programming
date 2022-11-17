@@ -3,11 +3,13 @@
 #include <stdio.h>
 
 /**
-  *print_string - entry point
-  *@separator: comma space
-  *@n: number of elements
-  * Return: void
-  */
+ *print_strings - Print numbers using a separato
+ * @separator: The string separator
+ * @n: The quantity of numbers
+ * @...: The list of numbers
+ *
+ * Return: Nothing
+ */
 void print_strings(const char *separator, const unsigned int n, ...)
 {
 	char *sep, *ptr;
