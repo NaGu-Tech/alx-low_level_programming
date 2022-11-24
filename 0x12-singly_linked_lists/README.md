@@ -55,4 +55,4 @@ All of the following files are programs written in C:
 
 * **6. Real programmers can write assembly code in any language**
   * [101-hello_holberton.asm](./101-hello_holberton.asm): 64-but assembly program
-  that prints `Hello, Holberton` followe
+  that prints `Hello, Holberton` followed by a new line
