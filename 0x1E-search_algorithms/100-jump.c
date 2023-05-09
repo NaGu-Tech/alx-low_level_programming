@@ -1,9 +1,5 @@
-/*
- * File: 100-jump.c
- * Auth: Brennan D Baraban
- */
-
 #include "search_algos.h"
+#include <stdio.h>
 
 /**
   * jump_search - Searches for a value in a sorted array
@@ -16,7 +12,7 @@
   *         Otherwise, the first index where the value is located.
   *
   * Description: Prints a value every time it is compared in the array.
-  *              Uses the square root of the array size as the jump step.
+  *  Uses the square root of the array size as the jump step.
   */
 int jump_search(int *array, size_t size, int value)
 {
