@@ -1,4 +1,7 @@
+#include <stdio.h>
+#include <stdlib.h>
 #include "search_algos.h"
+#include <math.h>
 
 /**
  * jump_search - performs jump search
